@@ -1,0 +1,30 @@
+<template name="create">
+    <div class="background">
+        <div class="center-block form-connect form-compact">
+            <div class="form-group">
+                <h1>Create a new standup now!</h1>
+            </div>
+            <div class="form-group" id="group-title">
+                <input type="text" class="form-control" id="title" placeholder="Name your standup" required="required">
+            </div>
+            <div class="form-group">
+                <select class="form-control role" id="role" name="role">
+                    <option value="" default selected>Choose your role (optional)</option>
+                    <option value="1">Core developer</option>
+                    <option value="2">Designer</option>
+                    <option value="3">DevOps</option>
+                    <option value="4">Front-end developer</option>
+                    <option value="5">Product Analyst</option>
+                    <option value="6">Project Manager</option>
+                    <option value="7">QA Tester</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="Password (optional)">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success center-block btn-standup" id="create">Let's standup!</button>
+            </div>
+        </div>
+    </div>
+</template>

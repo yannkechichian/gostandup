@@ -1,0 +1,85 @@
+<template name="room">
+    <nav class="navbar navbar-default submenu">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="standup-name">{{standupName}}</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <div class="input-group btn-completed">
+                            {{#if isRoomStandupCompleted}}
+                                <button type="button" class="btn btn-success" disabled style="display:{{ display }};">Completed</button>
+                            {{/if}}
+                        </div>
+                    </li>
+                    <li class="field-link">
+                        <div class="input-group room-link">
+                            <span class="input-group-addon">Link</span>
+                            <input type="text" class="form-control" value="{{ roomUrl }}">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" onclick="$(this).parents('div.input-group').children('input').select()">Select</button>
+                            </span>
+                        </div>
+                    </li>
+                    <!-- <li class="field-email">
+                        <div class="input-group room-email">
+                            <span class="input-group-addon">Invitation</span>
+                            <input type="text" class="form-control" placeholder="Email address">
+                            <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" id="send-email">Send</button>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="field-email-sent">
+                        <div class="input-group room-email">
+                            <h4>The invitation has been sent!</h4>
+                        </div>
+                    </li> -->
+                    <li><a class="btn btn-success" id="share-link"><i class="fa fa-link fa-lg"></i></a></li>
+                    <!-- <li><a class="btn btn-success" id="share-email"><i class="fa fa-envelope lg"></i></a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="room-box-container">
+        <div class="room-box-messages">
+            <div id="messages">
+                {{#each messages}}
+                    <blockquote class="{{#if isMe}}me{{/if}}">
+                        <p>{{message}}</p>
+                        <small>{{username}} (<cite>{{getRole role}}</cite>)</small>
+                    </blockquote>
+                {{/each}}
+            </div>
+        </div>
+        <div class="room-box-users">
+            <ul class="nav nav-pills nav-stacked list">
+                {{#each users}}
+                    <li class="list__item">
+                        <label class="label--checkbox">
+                            {{#if isUserStandupCompleted}}
+                                <input type="checkbox" class="checkbox" name="{{ name }}" checked disabled>
+                            {{else}}
+                                <input type="checkbox" class="checkbox" name="{{ name }}" disabled>
+                            {{/if}}
+                            {{ name }} {{#if isMe}}&bull;{{/if}}
+                        </label>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{#if active}}
+        <nav class="navbar navbar-default form-message">
+            <div class="form-group wrapper-message">
+                <div class="wrapper-input-message">
+                    <textarea class="form-control" rows="1" id="input-message" placeholder="i.e. @standup: Yesterday, I did this. Today, I will do that."></textarea>
+                </div>
+                <div class="wrapper-btn-send-message">
+                    <button type="submit" class="btn btn-primary" id="btn-send-message">Send</button>
+                </div>
+            </div>
+        </nav>
+    {{/if}}
+</template>

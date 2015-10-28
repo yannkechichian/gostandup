@@ -1,0 +1,49 @@
+<template name="menu">
+    <nav class="navbar navbar-default top-menu">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">ST&#x25B2;NDUP.IO</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {{#if currentUser}}
+                <ul class="nav navbar-nav">
+                    <li><a href="/history">History</a></li>
+                </ul>
+                {{/if}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#if currentUser}}
+                        {{> signout}}
+                    {{else}}
+                        {{> signin}}
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<template name="signin">
+    <li>
+        <a href="#" id="signin" class="btn btn-block btn-social btn-github">
+            <i class="fa fa-github"></i> Sign in with Github
+        </a>
+    </li>
+</template>
+
+<template name="signout">
+    <li class="dropdown">
+        <a class="dropdown-toggle userinfo" data-toggle="dropdown" href="#" aria-expanded="true">
+           <img class="avatar" src="{{ user.avatar_url }}&size=30" alt=""> {{ user.name }} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#" id="signout">Sign out</a></li>
+        </ul>
+    </li>
+</template>

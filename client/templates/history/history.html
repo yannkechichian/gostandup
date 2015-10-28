@@ -1,0 +1,12 @@
+<template name="history">
+    <div class="history">
+        <div class="list-group">
+            {{#each standups}}
+                <a href="{{ baseUrl }}{{ _id }}" class="list-group-item">
+                    <h4 class="list-group-item-heading">{{formatDate timestamp}}</h4>
+                    <p class="list-group-item-text">{{title}}</p>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+</template>

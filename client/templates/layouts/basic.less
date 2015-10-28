@@ -1,0 +1,267 @@
+// General styles, e. g. for the body tag
+@import '../../stylesheets/helpers';
+@import '../../stylesheets/variables';
+@import '../../stylesheets/elements';
+
+/* -------------------
+    Main Content
+   ------------------- */
+
+body, #main {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    color: @primaryFontColor;
+    background-color: #fafafa;
+}
+
+.background {
+    background: url(/images/background/opera_house.jpg);
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: inherit;
+    transition: 0.3s color;
+
+    &:hover {
+        color: @primaryLinkHoverColor;
+    }
+}
+
+.icon {
+    &.orange {
+        color: @html5Orange;
+    }
+}
+
+.ui.header {
+
+}
+
+.site-wrapper {
+    margin: 0 auto;
+    max-width: @largeDesktopWidth;
+}
+
+#main {
+  .boilerplate-feature.icon {
+    margin-top: 10px;
+    transition: 0.7s color;
+
+    &:hover {
+      color: @primaryIconColor;
+    }
+
+    &.hover-orange.html5:hover {
+      color: @html5Orange;
+    }
+  }
+
+  .features.grid {
+    width: 100%;
+    margin: 0%;
+    margin-top: 30px;
+  }
+
+  .main-content > .ui.two.column.grid {
+    padding-top: 20px;
+  }
+
+  .column > .icon-wrapper {
+    font-size: 2em;
+    color: @primaryIconColor;
+  }
+
+  .submenu {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    margin-top: 60px;
+    .field-link, .field-email, .field-email-sent {
+      display: none;
+    }
+    .room-link, .room-email {
+      width: 20em;
+      input {
+        width: 22em;
+      }
+    }
+    .field-email-sent h4 {
+      margin: 10px auto;
+      width: 90%;
+    }
+    .btn-completed {
+
+    }
+    li {
+      margin-top: 8px;
+      margin-left: 10px;
+    }
+    .standup-name {
+      font-size: 2em;
+      color: #ccc;
+      margin-left: 0;
+      font-weight: 100;
+    }
+  }
+
+  .submenu, .form-message {
+    background-color: #ecf0f1;
+  }
+
+  .room-box-container {
+    margin-top: 120px;
+    width: 100%;
+    .room-box-messages {
+      float: left;
+      position: relative;
+      width: 80%;
+      top: -75px;
+      margin-top: 75px;
+      .me {
+        border-left: 5px solid #2c3e50;
+      }
+    }
+    .room-box-users {
+      position: fixed;
+      right: 0;
+      float: left;
+      width: 20%;
+      height: 800px;
+      box-shadow: -2px 0px 20px -10px #aaaaaa;
+      background-color: #fff;
+      a {
+        border-radius: 0;
+        color: #bbb; /* #2c3e50 */
+        padding: 10px 0 10px 40px;
+      }
+      a:hover {
+        color: #bbb; /* #2c3e50 */
+      }
+      label, input[type='checkbox'] {
+        cursor: default !important;
+      }
+
+    }
+  }
+
+  .form-message {
+    position: fixed;
+    bottom: 0;
+    padding: 15px;
+    width: 100%;
+    height: 70px;
+    .wrapper-message {
+      width: 100%;
+      .wrapper-input-message {
+        width: 75%;
+        float: left;
+      }
+      .wrapper-btn-send-message {
+        float: left;
+      }
+      #btn-send-message {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .form-connect {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2%;
+    margin-top: 100px;
+    text-align: center;
+    color: #ffffff;
+    .role {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: #b4bcc2;
+      background: url(/images/down_arrow_select.png) no-repeat right #fff;
+      background-position-x: 97%;
+    }
+    .btn-standup {
+      width: 35%;
+    }
+  }
+
+  .form-compact {
+    padding: 2% 36%;
+  }
+
+  h1 {
+    font-size: 2em;
+    font-weight: 100;
+  }
+
+  h2 {
+    font-weight: 100;
+  }
+
+  .btn-signin {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  blockquote {
+    background: #f9f9f9;
+    border-left: 10px solid #ccc;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D";
+  }
+
+  blockquote h1 {
+    display: inline;
+  }
+
+  @media (max-width: @largeDesktopWidth) {
+    .column > .icon-wrapper {
+      font-size: 1.5em;
+    }
+  }
+
+  @media (max-width: @mediumDesktopWidth) {
+    .column > .icon-wrapper {
+      font-size: 1em;
+    }
+  }
+
+  @media (max-width: @tabletWidth) {
+    .features.grid .headline {
+      display: none;
+    }
+    .room-box-users {
+      display: none;
+    }
+    .features.grid .headline {
+      display: none;
+    }
+    .form-connect {
+      width: 90%;
+      margin-top: 80px;
+      .btn-standup {
+        width: 50%;
+      }
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: center;
+    }
+  }
+}
+
+/* -------------------
+    Footer
+   ------------------- */
+.padding-wrapper.footer {
+    .border-radius(0px);
+
+    a:hover {
+        color: @secondaryLinkHoverColor;
+    }
+}
